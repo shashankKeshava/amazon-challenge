@@ -3,14 +3,18 @@ export const fetchData = (type = 'DEFAULT', page) => dispatch => {
         `https://sellics-frontend-test.herokuapp.com/reviews/${page}`,
         {
             method: 'GET',
-            // headers:new Headers({
-            //     'Access-Control-Request-Method': 'GET',
-            //     'Access-Control-Request-Headers': 'Content-Type, Authorization'
+            // headers: new Headers({
+            //     'Access-Control-Allow-Origin': '*',
+            //     'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+            //     'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
             // }),
-            mode: 'cors'
+            // mode: 'cors',
         }
     )
-        .then(res => {console.log(res); return res.json()})
+        .then(res => {
+            console.log('Response', res);
+            return res.json();
+        })
         .then(response => dispatch({ type, response }))
         .catch(error => dispatch({ type: 'FETCH_FAIL', error }));
 };
