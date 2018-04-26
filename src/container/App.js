@@ -22,7 +22,11 @@ class App extends Component {
 }
 
 const mapToStateToProps = state => {
-    return { data: state.data };
+    return {
+        isLoading: state.isLoading,
+        data: state.reviews,
+        hasMore: state.hasMore,
+    };
 };
 
 const mapDispatchToProps = dispatch =>
