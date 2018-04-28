@@ -15,17 +15,30 @@ class App extends Component {
     };
 
     render() {
-        const {data: reviewData} = this.props;
+        const {isLoading, reviews: reviewData, hasMore, loadingMsg} = this.props;
         return (
             <div className="App">
                 <header className="App-header">
                     <h1 className="App-title">Amazon Challenge</h1>
                 </header>
+                {isLoading && (
+                    <div className="App-loader">
+                        <div className="container">
+                            <div className="lds-ring">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div className="App-loader-msg">Important:{" "}<a className="App-loader-a" href={loadingMsg.pluginLink}>{loadingMsg.importantMsg}</a>
+                        </div>
+                    </div>
+                )}
                 <div className="reviews">
                     {reviewData && reviewData.map(review => {
                         return <ReviewCard data={review} key={review.reviewId}/>
-                    })
-}
+                    })}
                 </div>
             </div>
         );
@@ -33,7 +46,7 @@ class App extends Component {
 }
 
 const mapToStateToProps = state => {
-    return {isLoading: state.isLoading, data: state.reviews, hasMore: state.hasMore};
+    return state;
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
