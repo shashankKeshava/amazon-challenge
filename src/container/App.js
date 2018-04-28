@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import utils from '../utils'
 
 import {fetchData} from '../actions';
 import './App.scss';
@@ -15,7 +16,7 @@ class App extends Component {
     };
 
     render() {
-        const {isLoading, reviews: reviewData, hasMore, loadingMsg} = this.props;
+        const {isLoading, reviews: reviewData, hasMore} = this.props;
         return (
             <div className="App">
                 <header className="App-header">
@@ -31,7 +32,7 @@ class App extends Component {
                                 <div></div>
                             </div>
                         </div>
-                        <div className="App-loader-msg">Important:{" "}<a className="App-loader-a" href={loadingMsg.pluginLink}>{loadingMsg.importantMsg}</a>
+                        <div className="App-loader-msg">Note:{" "}<a className="App-loader-a" href={utils.loadingMsg.pluginLink}>{utils.loadingMsg.importantMsg}</a>
                         </div>
                     </div>
                 )}
