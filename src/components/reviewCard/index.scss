@@ -1,10 +1,52 @@
-.reviewCard{
+$grey:#d6d4d4;
+$NormalFontSize:1em;
+.reviewCard {
     border: 1px solid #cac9c9;
     margin: 15px 20px 15px 20px;
     padding: 5px 5px 5px 5px;
     border-radius: 8px;
-
-    &:hover{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    &-Head {
+        display: flex;
+        padding: 10px;
+        width: 75%;
+        &-data {
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+            &-title {
+                font-size: 0.75em;
+                color: $grey;
+                padding-bottom: 5px;
+            }
+            &-content {
+                font-weight: bold;
+                font-size: $NormalFontSize;
+            }
+        }
+        &-img {
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: $grey;
+            border-radius: 7px;
+        }
+    }
+    &-Title {
+        font-size: $NormalFontSize;
+        font-weight: bold;
+        padding: 10px;
+    }
+    &-Content {
+        font-size: $NormalFontSize;
+        padding: 10px;
+    }
+    &:hover {
         background-color: #f6f8fa;
     }
 }
