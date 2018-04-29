@@ -10,14 +10,16 @@ module.exports = {
             placeholder: 'Search'
         },
         groupBy: {
-            placeholder: 'Group By'
+            placeholder: 'Group By',
+            variants:['Day','Week','Month']
         },
         orderBy: {
-            placeholder: 'Order By'
+            placeholder: 'Order By',
+            variants:['Ascending','Descending']
         },
         ratingBy: {
             label: 'Filter By:',
-            rates: [1, 2, 3, 4, 5]
+            variants: [1, 2, 3, 4, 5]
         }
     }
 }

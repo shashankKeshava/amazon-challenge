@@ -7,6 +7,7 @@ import {fetchData} from '../actions';
 import './App.scss';
 
 import {ReviewCard} from '../components/reviewCard'
+import {Filters} from '../components/filters'
 
 class App extends Component {
     componentDidMount = () => {
@@ -32,15 +33,23 @@ class App extends Component {
                                 <div></div>
                             </div>
                         </div>
-                        <div className="App-loader-msg">Note:{" "}<a className="App-loader-a" href={utils.loadingMsg.pluginLink}>{utils.loadingMsg.importantMsg}</a>
+                        <div className="App-loader-msg">Note:{" "}
+                            <a className="App-loader-a" href={utils.loadingMsg.pluginLink}>{utils.loadingMsg.importantMsg}</a>
                         </div>
                     </div>
                 )}
-                <div className="reviews">
-                    {reviewData && reviewData.map(review => {
-                        return <ReviewCard data={review} key={review.reviewId}/>
-                    })}
-                </div>
+                {!isLoading && (
+                    <div className="App-body">
+                        <div className="App=body-filters">
+                            <Filters/>
+                        </div>
+                        <div className="reviews">
+                            {reviewData && reviewData.map(review => {
+                                return <ReviewCard data={review} key={review.reviewId}/>
+                            })}
+                        </div>
+                    </div>
+                )}
             </div>
         );
     }
