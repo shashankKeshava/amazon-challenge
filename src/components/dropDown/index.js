@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {getIn} from 'timm';
 
+import './index.scss'
+
 export class DropDown extends Component {
     constructor(props) {
         super(props)
@@ -43,7 +45,10 @@ export class DropDown extends Component {
 
         return (
             <div className="dropDown-wrapper" onClick={this.toggleOptions}>
-                {value || label}
+                <div className="dropDown-select">
+                <span>{value || label}</span>
+                <p>&#x25B2;</p>
+                </div>
                 {show
                     ? options
                     : false}

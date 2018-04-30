@@ -22,9 +22,9 @@ const Rating = ({label, payload}) => {
             {label}
             {payload && payload.map(variant => {
                 return (
-                    <div className="filter-rating-variant">
+                    <div className="filter-rating-variant" key={variant}>
                         <input type="checkbox"/> {variant}
-                        <FontAwesomeIcon key={variant} icon={'star'}/>
+                        <FontAwesomeIcon icon={'star'}/>
                     </div>
                 )
             })}
