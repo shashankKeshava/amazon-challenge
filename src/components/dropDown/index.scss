@@ -28,16 +28,7 @@ $blue:#7eaac5;
             font-size: 15px;
         }
     }
-    &-options-1 {
-        color: $blue;
-        font-size: 1em;
-        padding-left: 14px;
-        padding: 6px 5px 6px 14px;
-        &:hover {
-            background-color: #f6f8fa;
-        }
-    }
-    &-options-2 {
+    &-options {
         color: $blue;
         font-size: 1em;
         padding-left: 14px;

@@ -55,12 +55,10 @@ export class Filters extends Component {
                     <Search className="filter-search" searchPlaceholder={searchPlaceholderText}/>
                     <div className="filter-dropDown">
                     <DropDown
-                    key={1}
                         className="filter-groupBy"
                         label={groupByplaceholder}
                         payload={variants}/>
                     <DropDown
-                    key={2}
                         className="filter-orderBy"
                         label={orderByPlaceholder}
                         payload={orderByVariants}/>

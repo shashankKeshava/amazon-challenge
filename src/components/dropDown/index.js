@@ -1,59 +1,70 @@
-import React, {Component} from 'react'
-import {getIn} from 'timm';
+import React, { Component } from 'react';
+import { getIn } from 'timm';
 
-import './index.scss'
+import './index.scss';
 
 export class DropDown extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             show: false,
-            value: false
-        }
+            value: false,
+        };
     }
-    toggleOptions = (event) => {
+
+    closeMenu = () => {
+        this.setState({
+            show: false,
+        });
+    };
+    toggleOptions = event => {
         event.preventDefault();
-        const {show: status} = this.state;
+        const { show: status } = this.state;
 
         //Show menu based on click and hide menu if clicked anywhere on screen
-        this.setState({
-            show: !status
-        }, () => {
-            document.addEventListener('click', this.closeMenu)
-        });
+        this.setState(
+            {
+                show: !status,
+            },
+            () => {
+                document.addEventListener('click', this.closeMenu);
+            }
+        );
 
-        const {payload} = this.props;
+        const { payload } = this.props;
 
         const option = getIn(event, ['target', 'innerHTML']) || false;
-        if (payload.indexOf(option) > -1)
-            this.handleSelectedVariant(option);
-        }
+        if (payload.indexOf(option) > -1) this.handleSelectedVariant(option);
+    };
 
-    handleSelectedVariant = (variant) => {
-        this.setState({value: variant})
-    }
+    handleSelectedVariant = variant => {
+        this.setState({ value: variant });
+    };
+
     render() {
-        const {payload, label,key} = this.props;
-        const {show, value} = this.state;
-        const options = payload.map((variant,index) => {
+        const { payload, label } = this.props;
+        const { show, value } = this.state;
+        const options = payload.map((variant, index) => {
             return (
-                <div className={`dropDown-options-${key}`} key={index}>
+                <div className="dropDown-options" key={index}>
                     {variant}
                 </div>
-            )
-        })
+            );
+        });
 
         return (
-            <div className="dropDown-wrapper" onClick={this.toggleOptions} key={Math.random()}>
-                <div className="dropDown-select">
-                <span>{value || label}</span>
-                <p>&#x25B2;</p>
+            <div className="dropDown-wrapper">
+                <div className="dropDown-label">
+                    <div
+                        className="dropDown-select"
+                        onClick={this.toggleOptions}
+                    >
+                        <span>{value || label}</span>
+                        <p>&#x25B2;</p>
+                    </div>
                 </div>
-                {show
-                    ? options
-                    : false}
+                <div>{show ? options : ''}</div>
             </div>
-        )
+        );
     }
-
 }
