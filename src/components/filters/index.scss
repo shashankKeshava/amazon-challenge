@@ -5,8 +5,10 @@ $blue:#7eaac5;
     &-search-wrapper {
         display: flex;
         justify-content: center;
+            
 
         input {
+            box-shadow: 1px 1px 3px -1px black;
             border: 1px solid $blue;
             border-radius: 12px;
             border-width: 1px;
@@ -20,5 +22,10 @@ $blue:#7eaac5;
             color: $blue; // font-size: 1.5em;
             padding: 5px;
         }
+    }
+    &-dropDown{
+        display: flex;
+         padding: 10px;
+
     }
 }

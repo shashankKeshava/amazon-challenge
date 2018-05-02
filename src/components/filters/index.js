@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {getIn} from 'timm';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import {faStar} from '@fortawesome/fontawesome-free-solid'
+//import {faStar} from '@fortawesome/fontawesome-free-solid'
+import {faStar} from '@fortawesome/fontawesome-free-regular'
 
 import utils from '../../utils'
 import {DropDown} from '../dropDown'
@@ -52,14 +53,18 @@ export class Filters extends Component {
             <div className="filter">
                 <form>
                     <Search className="filter-search" searchPlaceholder={searchPlaceholderText}/>
+                    <div className="filter-dropDown">
                     <DropDown
+                    key={1}
                         className="filter-groupBy"
                         label={groupByplaceholder}
                         payload={variants}/>
                     <DropDown
+                    key={2}
                         className="filter-orderBy"
                         label={orderByPlaceholder}
                         payload={orderByVariants}/>
+                        </div>
                     <Rating className="filter-rating" label={ratingLabel} payload={ratingVariants}/>
                 </form>
             </div>

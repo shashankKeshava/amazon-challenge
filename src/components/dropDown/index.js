@@ -33,18 +33,18 @@ export class DropDown extends Component {
         this.setState({value: variant})
     }
     render() {
-        const {payload, label} = this.props;
+        const {payload, label,key} = this.props;
         const {show, value} = this.state;
-        const options = payload.map(variant => {
+        const options = payload.map((variant,index) => {
             return (
-                <div className="dropDown-options">
+                <div className={`dropDown-options-${key}`} key={index}>
                     {variant}
                 </div>
             )
         })
 
         return (
-            <div className="dropDown-wrapper" onClick={this.toggleOptions}>
+            <div className="dropDown-wrapper" onClick={this.toggleOptions} key={Math.random()}>
                 <div className="dropDown-select">
                 <span>{value || label}</span>
                 <p>&#x25B2;</p>
